@@ -17,7 +17,7 @@
                 <ControlTemplate TargetType="{x:Type controls:VertexControl}">
                     <Border Background="{TemplateBinding Background}" 
                             BorderBrush="{TemplateBinding BorderBrush}"
-							CornerRadius="10,10,10,10"
+							CornerRadius="15,15,15,15"
 						Padding="{TemplateBinding Padding}">
                         <Grid>
                             <Grid.RowDefinitions>

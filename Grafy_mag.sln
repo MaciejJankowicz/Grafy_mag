@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27428.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grafy_mag", "Grafy_mag\Grafy_mag.csproj", "{C9804EB2-3834-4335-BA6B-ABCBB11CBDE1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controls", "Controls\Controls.csproj", "{47675BE9-0BE1-4FC8-A9CB-FEC7D5A569F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C9804EB2-3834-4335-BA6B-ABCBB11CBDE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9804EB2-3834-4335-BA6B-ABCBB11CBDE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9804EB2-3834-4335-BA6B-ABCBB11CBDE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47675BE9-0BE1-4FC8-A9CB-FEC7D5A569F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47675BE9-0BE1-4FC8-A9CB-FEC7D5A569F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47675BE9-0BE1-4FC8-A9CB-FEC7D5A569F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47675BE9-0BE1-4FC8-A9CB-FEC7D5A569F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

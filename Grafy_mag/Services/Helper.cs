@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Grafy_mag.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -73,6 +74,80 @@ namespace Grafy_mag.Services
                 cost += permutationsMatrix[nodes.Item2][nodes.Item1];
             }
             return cost;
+        }
+
+        public static bool IsSame(this int[] c, int[] other)
+        {
+            if (c.Length != other.Length)
+            {
+                return false;
+            }
+
+            for (int i = 0; i < c.Length; i++)
+            {
+                if (c[i] != other[i])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public static Cycle GetBest(this IEnumerable<Cycle> cycles, int[][] perms)
+        {
+            Cycle best = new Cycle();
+            foreach (Cycle cycle in cycles)
+            {
+                if (cycle.GetCost(perms) < best.GetCost(perms))
+                {
+                    best = cycle;
+                }
+            }
+            return best;
+        }
+
+        public static void UpdatePareto(this List<Cycle> cycles, Population population, int[][][] perms)
+        {
+            foreach (var cycle in population.Cycles)
+            {
+                for (int i = 0; i < perms.GetLength(0); i++)
+                {
+                    if (cycles.Any( x => cycle.GetCost(perms[i]) < x.GetCost(perms[i]) ))
+                    {                      
+                        CleanPareto(cycles, cycle, perms);
+                        cycles.Add(cycle);
+                        break;
+                    }
+                }
+            }
+
+        }
+        static void CleanPareto(List<Cycle> cycles, Cycle newCycle, int[][][] perms)
+        {
+            bool canStay = false;
+            List<Cycle> toDelete = new List<Cycle>();
+            for (int i = 0; i < cycles.Count; i++)
+            {
+                canStay = false;
+                for (int j = 0; j < perms.GetLength(0); j++)
+                {
+                    if (cycles[i].GetCost(perms[j]) < newCycle.GetCost(perms[j]))
+                    {
+                        canStay = true;
+                        break;
+                    }
+                }
+                if (!canStay)
+                {
+                    toDelete.Add(cycles[i]);
+                }
+            }
+            foreach (var item in toDelete)
+            {
+                cycles.Remove(item);
+            }
+            
+
         }
 
     }

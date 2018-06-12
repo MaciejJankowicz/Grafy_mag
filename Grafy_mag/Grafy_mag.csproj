@@ -15,7 +15,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
+    <DebugType>portable</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
@@ -24,7 +24,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
+    <DebugType>portable</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EPPlus, Version=4.5.2.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.2\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
     <Reference Include="GraphX.PCL.Common, Version=2.3.6.0, Culture=neutral, PublicKeyToken=a6cdb671d651b60a, processorArchitecture=MSIL">
       <HintPath>..\packages\GraphX.2.3.6.0\lib\net40-client\GraphX.PCL.Common.dll</HintPath>
     </Reference>
@@ -56,7 +59,9 @@
       <HintPath>..\packages\QuickGraphPCL.3.6.61114.2\lib\net40-client\QuickGraph.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -78,14 +83,25 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\CycleBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Models\DataEdge.cs" />
     <Compile Include="Models\DataVertex.cs" />
     <Compile Include="Models\GraphAreaGeneric.cs" />
     <Compile Include="Models\GraphGeneric.cs" />
     <Compile Include="Models\GXLogicCoreGeneric.cs" />
+    <Compile Include="Models\ListViewCycle.cs" />
+    <Compile Include="Models\Population.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CrossOver.cs" />
+    <Compile Include="Services\Excel.cs" />
+    <Compile Include="Services\GeneticIteration.cs" />
     <Compile Include="Services\Helper.cs" />
+    <Compile Include="Services\Mutation.cs" />
+    <Compile Include="Services\RandomHelper.cs" />
+    <Compile Include="Services\Tourney.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
